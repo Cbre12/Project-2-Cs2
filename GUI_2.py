@@ -79,13 +79,13 @@ class Gui:
         if not name.isalpha():
             messagebox.showerror("Error", "Dog name should contain only alphabetic characters.")
             return
-        if not LBS.isdigit():
+        if not LBS.replace('.', '', 1).isdigit():
             messagebox.showerror("Error", "Weight should contain only numeric characters.")
             return
-        if int(LBS) < 1:
+        if float(LBS) <= 0:
             messagebox.showerror("Error", "Weight should be larger than zero.")
             return
-        LBS = int(LBS)
+        LBS = float(LBS)
 
         # This calculates food amount based on diet selection from the radio buttons.
         if status == 1:
